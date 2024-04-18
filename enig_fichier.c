@@ -1,5 +1,7 @@
 #include "enig_fichier.h"
 #include <SDL/SDL_mixer.h>
+#include <SDL/SDL_image.h>
+
 
 void init_Enigme( Enigme* e)
 {
@@ -43,14 +45,14 @@ void init_Enigme( Enigme* e)
         printf("%s", Mix_GetError());
     }
 
-   
+    // Load your music
     e->music = Mix_LoadMUS("game1.mp3");
     if(e->music == NULL)
     {
         printf("%s", Mix_GetError());
     }
 
-    
+    // Play the music
     Mix_PlayMusic(e->music, -1);
     e->congrats_sound = Mix_LoadWAV("congratulations.wav");
     e->wrong_sound = Mix_LoadWAV("wrong.wav");
